@@ -1,0 +1,6 @@
+<!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find pi_robot_pkg)/config/pirobot_control.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/pi_robot" args="left_shoulder_forward_joint_position_controller joint_state_controller"/>
